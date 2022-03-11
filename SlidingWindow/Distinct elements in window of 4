@@ -1,0 +1,36 @@
+#In this code we are goint to print the distinct elements in every regular windows of said size in an array
+
+class Distinct{
+
+
+public staic void main(String args[]){
+
+p(new int[] {1,2,2,1,3,1,1,3},4);
+
+}
+static void print(int [] a,int size){
+
+if(size>a.length)
+System.out.println("NOT POSSIBLE");
+
+HashMap<Integer,Intteger> map = new HashMap<>();
+
+for(int i =0;i<size;i++){
+map.put(a[i].map.getOrDefault(a[i],0)+1);
+}
+System.out.println(map.size());
+
+for(int i =size;i++;i<a.length){
+if(map.get(a[i-size])==1) {
+			map.remove(a[i-size] );
+			
+		}
+		else {
+			map.put(a[i-size],map.get(a[i-size])-1);
+		}
+		map.put(a[i], map.getOrDefault(a[i], 0)+1);
+		System.out.println(map.size());
+
+}
+}
+}
