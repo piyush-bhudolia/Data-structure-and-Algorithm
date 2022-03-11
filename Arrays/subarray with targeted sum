@@ -1,0 +1,41 @@
+import java.util.HashMap;
+// program the find the subarray in the array whose sum is equal to the targeted sum
+public class Subarray {
+	public static void main(String args []) {
+		giveSubarray(new int[]{10,15,-5,15,-10,5},20);
+		
+	}
+	
+ static void giveSubarray(int [] a,int sum) {
+		int currentsum =0;
+		int start =0,end =-1;
+		
+		HashMap<Integer,Integer> map = new HashMap<>();
+		for(int i =0;i<a.length;i++) {
+			currentsum+=a[i];
+			//add sum upon sum ,the logic based on principal that there must be x where x+sum = cuurentsum.
+			
+			if(currentsum -sum==0)
+			{
+			end =i;
+			break;
+			// this if logic is based on that if the subarray to find  is starting from start of the array .i.e 0+sum=cs
+			//so there will be 0+sum= cuurentsum;hence we got the array we exit from loop
+			}
+			if(map.containsKey(currentsum - sum)) {
+				start=map.get(currentsum-sum)+1;
+				end =i;break;
+				//here we found the x for which x+sum = currentsum.
+				
+			}
+			map.put(currentsum, i);
+		}
+		if(end ==-1) {
+			System.out.println("No subarray exists");
+		}
+		else
+			System.out.println("start "+start+" end "+end);
+				
+	}
+
+}
