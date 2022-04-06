@@ -1,0 +1,47 @@
+find the differne between the size and make the head of the list larger in size to jump the diff in size
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode x= headA;
+        ListNode y = headB;
+        int n=0,m=0;
+        while( x!=null){
+            x=x.next;
+            n++;
+        }
+        while(y!=null){
+            y=y.next;
+            m++;
+        }
+        x= headA;
+         y = headB;
+        int diff=Math.abs(n-m);
+        if(n>m){
+            for(int i =0;i<diff;i++){
+                x=x.next;
+            }
+        }
+        else if(m>n){
+            for(int i =0;i<diff;i++){
+                y=y.next;
+            }
+        }
+        while(x!=y){
+            x=x.next;
+            y=y.next;
+        }
+        return x;
+        
+    }
+}
